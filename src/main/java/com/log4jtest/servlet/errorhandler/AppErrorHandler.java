@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/AppErrorHandler")
+
 public class AppErrorHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -54,6 +55,7 @@ public class AppErrorHandler extends HttpServlet {
 	    	  out.write("<li>Exception Name:"+throwable.getClass().getName()+"</li>");
 	    	  out.write("<li>Requested URI:"+requestUri+"</li>");
 	    	  out.write("<li>Exception Message:"+throwable.getMessage()+"</li>");
+	    	  out.write(""");
 	    	  out.write("</ul>");
 	      }
 	      

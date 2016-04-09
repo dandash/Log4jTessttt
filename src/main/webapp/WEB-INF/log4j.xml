@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+	<appender name="consoleAppender"  
+      class="org.apache.log4j.ConsoleAppender">  
+      <param name="Threshold" value="INFO" />  
+      <layout class="org.apache.log4j.PatternLayout">  
+         <param name="ConversionPattern" value="%d  
+             %-5p  [%c{1}] %m %n" />  
+      </layout>  
+   </appender>  
+  
+   <appender name="fileAppender" class="org.apache.log4j.rolling.RollingFileAppender">  
+        <rollingpolicy class="org.apache.log4j.rolling.FixedWindowRollingPolicy">  
+            <param name="ActiveFileName" value="app.log">  
+            <param name="FileNamePattern" value="app-%i.log.gz">  
+            <param name="MaxIndex" value="3">  
+        </rollingpolicy>  
+        <triggeringpolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">  
+            <param name="MaxFileSize" value="5000000">  
+        </triggeringpolicy>  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="%d [%t] %-5p (%F:%L) - %m%n">  
+        </layout>  
+    </appender>  
+    <root>  
+        <level value="INFO"></level>  
+        <appender-ref ref="fileAppender"></appender-ref>  
+    </root>  
+	
+</log4j:configuration>
+
+
